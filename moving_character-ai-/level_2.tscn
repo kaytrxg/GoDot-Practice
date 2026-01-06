@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://vtxr1ptfdo8x"]
+
+[ext_resource type="PackedScene" uid="uid://4o7jf36gsy7j" path="res://Character.tscn" id="1_jg0dc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jg0dc"]
+bounce = 2.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdadj"]
+size = Vector2(200, 31)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nmjpi"]
+bounce = 2.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ypv"]
+size = Vector2(200, 30)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0s5r2"]
+bounce = 2.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j8ne"]
+size = Vector2(200, 30)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7dov7"]
+bounce = 2.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehv2h"]
+size = Vector2(200, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8me"]
+size = Vector2(1200, 100)
+
+[node name="Level 2" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_jg0dc")]
+position = Vector2(48, -44)
+
+[node name="BouncyPlatform" type="StaticBody2D" parent="." groups=["bouncy"]]
+physics_material_override = SubResource("PhysicsMaterial_jg0dc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyPlatform"]
+position = Vector2(110, 353)
+shape = SubResource("RectangleShape2D_xdadj")
+
+[node name="ColorRect" type="ColorRect" parent="BouncyPlatform"]
+offset_left = 13.0
+offset_top = 335.0
+offset_right = 213.0
+offset_bottom = 365.0
+color = Color(1, 0.29411766, 0.101960786, 1)
+
+[node name="BouncyPlatform2" type="StaticBody2D" parent="." groups=["bouncy"]]
+physics_material_override = SubResource("PhysicsMaterial_nmjpi")
+
+[node name="ColorRect2" type="ColorRect" parent="BouncyPlatform2"]
+offset_left = 546.0
+offset_top = 675.0
+offset_right = 746.0
+offset_bottom = 705.0
+color = Color(1, 0.29411766, 0.101960786, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BouncyPlatform2"]
+position = Vector2(641, 689)
+shape = SubResource("RectangleShape2D_n7ypv")
+
+[node name="BouncyPlatform3" type="StaticBody2D" parent="." groups=["bouncy"]]
+physics_material_override = SubResource("PhysicsMaterial_0s5r2")
+
+[node name="ColorRect3" type="ColorRect" parent="BouncyPlatform3"]
+offset_left = 62.0
+offset_top = 954.0
+offset_right = 262.0
+offset_bottom = 984.0
+color = Color(1, 0.29411766, 0.101960786, 1)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BouncyPlatform3"]
+position = Vector2(154, 972)
+shape = SubResource("RectangleShape2D_7j8ne")
+
+[node name="BouncyPlatform4" type="StaticBody2D" parent="." groups=["bouncy"]]
+position = Vector2(0, 2)
+physics_material_override = SubResource("PhysicsMaterial_7dov7")
+
+[node name="ColorRect4" type="ColorRect" parent="BouncyPlatform4"]
+offset_left = 509.0
+offset_top = 1544.0
+offset_right = 709.0
+offset_bottom = 1574.0
+color = Color(1, 0.29411766, 0.101960786, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BouncyPlatform4"]
+position = Vector2(603, 1558)
+shape = SubResource("RectangleShape2D_ehv2h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(499, 2078)
+shape = SubResource("RectangleShape2D_1y8me")

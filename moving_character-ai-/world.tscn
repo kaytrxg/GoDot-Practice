@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2r8k2m83m3vr"]
+[gd_scene load_steps=5 format=3 uid="uid://c2r8k2m83m3vr"]
 
 [ext_resource type="PackedScene" uid="uid://4o7jf36gsy7j" path="res://Character.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://dqe5ki4ytbtvr" path="res://world.gd" id="1_fj7yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(1000, 50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(1200, 100)
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_fj7yv")
 
 [node name="StaticBody2D_Ground" type="StaticBody2D" parent="."]
 
@@ -21,3 +26,11 @@ offset_right = 950.0
 offset_bottom = 525.0
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_f3sb7")]
+
+[node name="FallZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+position = Vector2(599, 1245)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_body_entered"]
