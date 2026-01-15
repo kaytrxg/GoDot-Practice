@@ -56,4 +56,8 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if collision.get_collider().is_in_group("bouncy"):
 				velocity.y = jump_velocity * 2.5 #Bounces higher
+			
+			#Checks if player landed on a breakable platform
+			if collision.get_collider().is_in_group("breakable"):
+				collision.get_collider().queue_free() #Destroys the platform
 				

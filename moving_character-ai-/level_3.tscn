@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ai1k3i4n38d"]
+
+[ext_resource type="PackedScene" uid="uid://4o7jf36gsy7j" path="res://Character.tscn" id="1_ayd5w"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ayd5w"]
+bounce = 2.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhj5"]
+size = Vector2(200, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayd5w"]
+size = Vector2(200, 30)
+
+[node name="Level 3" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ayd5w")]
+position = Vector2(190, -581)
+
+[node name="BouncyPlatform" type="StaticBody2D" parent="." groups=["bouncy"]]
+physics_material_override = SubResource("PhysicsMaterial_ayd5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyPlatform"]
+position = Vector2(200, 300)
+shape = SubResource("RectangleShape2D_1fhj5")
+
+[node name="ColorRect" type="ColorRect" parent="BouncyPlatform"]
+offset_left = 95.0
+offset_top = 287.0
+offset_right = 295.0
+offset_bottom = 317.0
+color = Color(0.9150074, 0.5505319, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BouncyPlatform2" type="StaticBody2D" parent="." groups=["bouncy"]]
+position = Vector2(200, 300)
+physics_material_override = SubResource("PhysicsMaterial_ayd5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyPlatform2"]
+position = Vector2(822, 516)
+shape = SubResource("RectangleShape2D_1fhj5")
+
+[node name="ColorRect" type="ColorRect" parent="BouncyPlatform2"]
+offset_left = 717.0
+offset_top = 503.0
+offset_right = 917.0
+offset_bottom = 533.0
+color = Color(0.9150074, 0.5505319, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BouncyPlatform3" type="StaticBody2D" parent="." groups=["bouncy"]]
+position = Vector2(400, 500)
+physics_material_override = SubResource("PhysicsMaterial_ayd5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyPlatform3"]
+position = Vector2(200, 643)
+shape = SubResource("RectangleShape2D_1fhj5")
+
+[node name="ColorRect" type="ColorRect" parent="BouncyPlatform3"]
+offset_left = 105.0
+offset_top = 630.0
+offset_right = 305.0
+offset_bottom = 660.0
+color = Color(0.9137255, 0.54901963, 0, 1)
+
+[node name="BreakablePlatform" type="StaticBody2D" parent="." groups=["breakable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakablePlatform"]
+position = Vector2(188, 21)
+shape = SubResource("RectangleShape2D_ayd5w")
+
+[node name="ColorRect" type="ColorRect" parent="BreakablePlatform"]
+offset_left = 87.0
+offset_top = 6.0
+offset_right = 287.0
+offset_bottom = 36.0
+color = Color(0.80129284, 0, 0, 1)
+
+[node name="BreakablePlatform2" type="StaticBody2D" parent="." groups=["breakable"]]
+position = Vector2(394, 532)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakablePlatform2"]
+position = Vector2(188, 21)
+shape = SubResource("RectangleShape2D_ayd5w")
+
+[node name="ColorRect" type="ColorRect" parent="BreakablePlatform2"]
+offset_left = 87.0
+offset_top = 6.0
+offset_right = 287.0
+offset_bottom = 36.0
+color = Color(0.80129284, 0, 0, 1)
+
+[node name="BreakablePlatform3" type="StaticBody2D" parent="." groups=["breakable"]]
+position = Vector2(-182, 947)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakablePlatform3"]
+position = Vector2(1698, 682)
+shape = SubResource("RectangleShape2D_ayd5w")
+
+[node name="ColorRect" type="ColorRect" parent="BreakablePlatform3"]
+offset_left = 1604.0
+offset_top = 670.0
+offset_right = 1804.0
+offset_bottom = 700.0
+color = Color(0.80129284, 0, 0, 1)
