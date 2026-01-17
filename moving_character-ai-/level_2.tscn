@@ -48,7 +48,7 @@ offset_left = 13.0
 offset_top = 335.0
 offset_right = 213.0
 offset_bottom = 365.0
-color = Color(1, 0.29411766, 0.101960786, 1)
+color = Color(1, 0.294118, 0.101961, 1)
 
 [node name="BouncyPlatform2" type="StaticBody2D" parent="." groups=["bouncy"]]
 physics_material_override = SubResource("PhysicsMaterial_nmjpi")
@@ -58,7 +58,7 @@ offset_left = 546.0
 offset_top = 675.0
 offset_right = 746.0
 offset_bottom = 705.0
-color = Color(1, 0.29411766, 0.101960786, 1)
+color = Color(1, 0.294118, 0.101961, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BouncyPlatform2"]
 position = Vector2(641, 689)
@@ -72,7 +72,7 @@ offset_left = 62.0
 offset_top = 954.0
 offset_right = 262.0
 offset_bottom = 984.0
-color = Color(1, 0.29411766, 0.101960786, 1)
+color = Color(1, 0.294118, 0.101961, 1)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="BouncyPlatform3"]
 position = Vector2(154, 972)
@@ -87,7 +87,7 @@ offset_left = 509.0
 offset_top = 1544.0
 offset_right = 709.0
 offset_bottom = 1574.0
-color = Color(1, 0.29411766, 0.101960786, 1)
+color = Color(1, 0.294118, 0.101961, 1)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="BouncyPlatform4"]
 position = Vector2(603, 1558)

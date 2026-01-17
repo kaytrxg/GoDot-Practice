@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmnchdw53183g"]
+
+[ext_resource type="Script" uid="uid://x4k6afdwul6c" path="res://closing_level.gd" id="1_300cd"]
+[ext_resource type="PackedScene" uid="uid://4o7jf36gsy7j" path="res://Character.tscn" id="2_txoti"]
+
+[node name="Closing Level" type="Node2D"]
+script = ExtResource("1_300cd")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_txoti")]
+position = Vector2(1181, -495)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -267.0
+offset_top = 2.0
+offset_right = 1458.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 46
+text = "Congratulation!! 
+You've completed my first game ever. 
+Press ENTER to restart. "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_priority = 1
+position = Vector2(576, 324)
+zoom = Vector2(0.3, 0.3)
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

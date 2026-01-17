@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2r8k2m83m3vr"]
 
 [ext_resource type="PackedScene" uid="uid://4o7jf36gsy7j" path="res://Character.tscn" id="1_f3sb7"]
-[ext_resource type="Script" uid="uid://dqe5ki4ytbtvr" path="res://world.gd" id="1_fj7yv"]
+[ext_resource type="Script" path="res://world.gd" id="1_fj7yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(1000, 50)
