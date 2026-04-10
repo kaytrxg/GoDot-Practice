@@ -1,0 +1,10 @@
+Desctiption for alphabet_detailed: 
+-- This folder was dedicated to see the precision Warp terminal has when given a detailed prompt, 
+-- THis folder and alphabet_warp folder were my first trials when it came to testing out the Warp terminal. 
+-- I first started Warp with a blank slate of a project folder, and gave a detailed prompt for how I would want the game to work. 
+-- This took me 15 mintues to create with a single script connecting all the icons that Warp created. 
+-- I didn't give any adjustments to the code, which was purposeful, to test and see if the code that was provided was readable on my end or extremly long for a detailed prompt alphabet game. 
+What I learned: 
+-- The code and game Warp terminal generated was polished and clear when looking back at the code and the scene that was created. 
+-- I like how through a detailed prompt, the background wasn't focused or flashy because I never mentioned it. 
+-- From this experiment folder specifically, I can see myself using Wrap terminal more when game developing especially when it comes to debugging high volume folders. 
