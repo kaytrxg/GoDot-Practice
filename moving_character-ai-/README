@@ -1,0 +1,9 @@
+Description for moving_character_ai: 
+-- This folder contains scenes going by level 1, level 2, level 3
+-- The code/scripts within this game is very basic with focusing on understanding the swtiching between scenes and linking the same icon/character to each scene. 
+-- Into Level 3, I experimented with adding a background image, and letting the colors go with the simple image. 
+-- While building the scenes, I integrated Claude AI in order to understand each function I was implementing into game scene. 
+ What I learned: 
+ -- Learned that it's important connecting pieces, the signals from blocks connecting to the reaction to the icon/character being one, and I'm satisfied with the outcome under a 2-3 day timeframe. 
+ -- Learned the basic structure of a multiple scene game, and understood the functionality of C code involved in the game as well
+ -- While creating teh scenes, I did add multiple sections of notes that show my thought process when building the scripts. 
