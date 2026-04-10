@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Moving_Character AI"
-run/main_scene="uid://c2r8k2m83m3vr"
+config/name="alphabet_warp"
+run/main_scene="res://scenes/letter_rain_rooftop.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

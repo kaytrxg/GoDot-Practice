@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/letter_rain_rooftop.gd" id="1_h6m0r"]
+
+[node name="LetterRainRooftop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h6m0r")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.054902, 0.12549, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 493.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 28
+text = "Letter Rain Rooftop"
+
+[node name="TargetLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 74.0
+offset_right = 520.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 20
+text = "Target: WARP   Next: W"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 112.0
+offset_right = 220.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 18
+text = "Score: 0"
+
+[node name="ComboLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 145.0
+offset_right = 220.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 18
+text = "Combo: x0"
+
+[node name="HintLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = -52.0
+offset_right = 280.0
+offset_bottom = -22.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+text = "Move with Left/Right arrows and catch only the correct next letter."
+
+[node name="Player" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 540.0
+offset_top = 600.0
+offset_right = 700.0
+offset_bottom = 628.0
+color = Color(0.298039, 0.713726, 0.992157, 1)
+
+[node name="PlayerLabel" type="Label" parent="Player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "CATCHER"

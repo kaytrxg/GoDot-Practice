@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Moving_Character AI"
-run/main_scene="uid://c2r8k2m83m3vr"
+config/name="alphabet_detailed"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
