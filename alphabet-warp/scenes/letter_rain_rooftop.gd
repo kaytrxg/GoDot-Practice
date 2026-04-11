@@ -8,16 +8,16 @@ const ALPHABET := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 @onready var player: ColorRect = $Player
 
 var rng := RandomNumberGenerator.new()
-var spawn_cooldown := 0.65
-var spawn_timer := 0.0
+var spawn_cooldown := 0.65 #wait time between letter spawns
+var spawn_timer := 0.0 	#Timer gets reset back to spawn_cooldown
 var letter_speed_min := 130.0
 var letter_speed_max := 240.0
 var player_speed := 460.0
 
 var score := 0
 var combo := 0
-var target_word := "WARP"
-var target_index := 0
+var target_word := "WARP" 	#tracks where you are spelling the targetted word
+var target_index := 0	#if W and A are caught; target_index would be 2 --> next letter is R
 var active_letters: Array[ColorRect] = []
 
 func _ready() -> void:
@@ -25,13 +25,13 @@ func _ready() -> void:
 	_position_player()
 	_update_ui()
 
-func _process(delta: float) -> void:
-	_move_player(delta)
-	_spawn_letters(delta)
-	_update_letters(delta)
+func _process(delta: float) -> void: 	#this would be the GAME LOOP
+	_move_player(delta) 	# reads the arrow key inpus, slides the catcher too
+	_spawn_letters(delta) 	#counts down the timer and drops a new letter when it hits ZERP
+	_update_letters(delta) 	#moves every active letter down, checks for collsions
 
 func _position_player() -> void:
-	var viewport_size := get_viewport_rect().size
+	var viewport_size := get_viewport_rect().size #The size of the game window, centers the player/catcher at the bottom of the screen
 	player.position = Vector2(
 		(viewport_size.x - player.size.x) * 0.5,
 		viewport_size.y - 88.0
@@ -57,8 +57,10 @@ func _spawn_letters(delta: float) -> void:
 
 	spawn_timer = spawn_cooldown
 	var next_target := target_word.substr(target_index, 1)
-	var should_spawn_target := rng.randf() < 0.45
-	var letter_char := next_target if should_spawn_target else ALPHABET.substr(rng.randi_range(0, ALPHABET.length() - 1), 1)
+	
+	#telling there's a 45% chance the falling letter is the one needed
+	var should_spawn_target := rng.randf() < 0.45 
+	var letter_char := next_target if should_spawn_target else ALPHABET.substr(rng.randi_range(0, ALPHABET.length() - 1), 1) # A spawning Logic
 
 	var letter := _create_letter(letter_char)
 	add_child(letter)
@@ -73,7 +75,7 @@ func _create_letter(letter_char: String) -> ColorRect:
 	letter.set_meta("char", letter_char)
 	letter.set_meta("speed", rng.randf_range(letter_speed_min, letter_speed_max))
 
-	var viewport_size := get_viewport_rect().size
+	var viewport_size := get_viewport_rect().size #use the width value to randomly place letters anywhere across the top without spawning off-screen
 	letter.position = Vector2(
 		rng.randf_range(16.0, viewport_size.x - letter.size.x - 16.0),
 		-48.0
@@ -88,15 +90,15 @@ func _create_letter(letter_char: String) -> ColorRect:
 	return letter
 
 func _update_letters(delta: float) -> void:
-	var viewport_size := get_viewport_rect().size
-	var player_rect := Rect2(player.position, player.size)
+	var viewport_size := get_viewport_rect().size 	# uses the height to know when a letter has fallen past the bottom
+	var player_rect := Rect2(player.position, player.size) 	#Collision Detection
 	var letters_to_remove: Array[ColorRect] = []
 
 	for letter in active_letters:
 		letter.position.y += float(letter.get_meta("speed")) * delta
-		var letter_rect := Rect2(letter.position, letter.size)
+		var letter_rect := Rect2(letter.position, letter.size) 	#Collision Detection
 
-		if player_rect.intersects(letter_rect):
+		if player_rect.intersects(letter_rect):	#Refers to checking if two rectangles are overlapped --> Rect2.intersects(). 
 			_handle_catch(letter)
 			letters_to_remove.append(letter)
 			continue
@@ -117,10 +119,10 @@ func _handle_catch(letter: ColorRect) -> void:
 	if caught_char == expected_char:
 		combo += 1
 		score += 10 + combo * 2
-		target_index = (target_index + 1) % target_word.length()
+		target_index = (target_index + 1) % target_word.length() 	 # Right letter = score grows faster the longer the combo runs (in order)
 	else:
 		combo = 0
-		score = max(score - 5, 0)
+		score = max(score - 5, 0) #Wrong letter = combo resets, lost 5 points (never below zero)
 
 	_update_ui()
 
@@ -129,3 +131,9 @@ func _update_ui() -> void:
 	target_label.text = "Target: %s   Next: %s" % [target_word, next_char]
 	score_label.text = "Score: %d" % score
 	combo_label.text = "Combo: x%d" % combo
+	
+	'''
+	NOTES: 
+		Letters are built entirelyt out of the ColorReact nodes with the PlayerLabel as a child within. 
+		No sprites, no textures, 
+	'''

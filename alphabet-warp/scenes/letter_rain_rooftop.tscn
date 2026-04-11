@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://dtx6dptgyqdri"]
 
-[ext_resource type="Script" path="res://scenes/letter_rain_rooftop.gd" id="1_h6m0r"]
+[ext_resource type="Script" uid="uid://cqmhfgy6i0e4p" path="res://scenes/letter_rain_rooftop.gd" id="1_h6m0r"]
 
 [node name="LetterRainRooftop" type="Control"]
 layout_mode = 3
@@ -58,7 +58,7 @@ text = "Combo: x0"
 
 [node name="HintLabel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -280.0
@@ -67,8 +67,8 @@ offset_right = 280.0
 offset_bottom = -22.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 16
-horizontal_alignment = 1
 text = "Move with Left/Right arrows and catch only the correct next letter."
+horizontal_alignment = 1
 
 [node name="Player" type="ColorRect" parent="."]
 layout_mode = 1
@@ -86,6 +86,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 16
+text = "CATCHER"
 horizontal_alignment = 1
 vertical_alignment = 1
-text = "CATCHER"
