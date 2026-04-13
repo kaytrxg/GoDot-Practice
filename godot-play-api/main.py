@@ -22,7 +22,7 @@ def log_play(game_name): #/log/alphabet-warp --> "alphabet-warp" in the table ro
     with conn: 
         with conn.cursor() as cursor: 
             cursor.execute(
-                "INSERT INTO play_sessions (game_name) VALUE (%s)", 
+                "INSERT INTO play_sessions (game_name) VALUES (%s)", 
                 (game_name,)
             )
         conn.commit()
