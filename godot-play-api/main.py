@@ -43,3 +43,5 @@ def get_stats():
 
 if __name__ == "__main__": 
     app.run(host="0.0.0.0", port=8080)
+
+# LIVE GCLOUD Link: https://godot-play-api-831129541610.us-east1.run.app
