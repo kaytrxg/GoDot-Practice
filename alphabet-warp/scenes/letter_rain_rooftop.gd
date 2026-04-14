@@ -2,6 +2,7 @@ extends Control
 
 const ALPHABET := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+@onready var http_request: HTTPRequest = $HTTPRequest
 @onready var target_label: Label = $TargetLabel
 @onready var score_label: Label = $ScoreLabel
 @onready var combo_label: Label = $ComboLabel
@@ -20,8 +21,20 @@ var target_word := "WARP" 	#tracks where you are spelling the targetted word
 var target_index := 0	#if W and A are caught; target_index would be 2 --> next letter is R
 var active_letters: Array[ColorRect] = []
 
+func _log_play() -> void:
+	var url := "https://godot-play-api-831129541610.us-east1.run.app/log/alphabet-warp"
+	var headers = ["Content-Type: application/json", "Content-Length: 2"]
+	http_request.request_completed.connect(_on_request_completed)
+	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, "{}")
+	if error != OK:
+		print("HTTP Request failed: ", error)
+func _on_request_completed(result, response_code, headers, body) -> void:
+	print("Response code: ", response_code)
+	print("Body: ", body.get_string_from_utf8())
+
 func _ready() -> void:
 	rng.randomize()
+	_log_play()
 	_position_player()
 	_update_ui()
 

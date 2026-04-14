@@ -43,3 +43,5 @@ text = "Visited letters: 1 / 26"
 [node name="ControlsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Right: +1 | Up: +2 | Left: -1 | Down: -3"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

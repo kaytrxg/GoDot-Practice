@@ -89,3 +89,5 @@ theme_override_font_sizes/font_size = 16
 text = "CATCHER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

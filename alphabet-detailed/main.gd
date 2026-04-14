@@ -7,15 +7,27 @@ var current_letter_index: int = 0 	#tracks the current letter player is on.
 var score: int = 0
 var visited_letters: Array[bool] = [] #is an array of 26, true/false, values. 
 
+@onready var http_request: HTTPRequest = $HTTPRequest
 @onready var current_letter_label: Label = $CenterContainer/VBoxContainer/CurrentLetterLabel
 @onready var score_label: Label = $CenterContainer/VBoxContainer/ScoreLabel
 @onready var visited_label: Label = $CenterContainer/VBoxContainer/VisitedLabel
+
+func _log_play() -> void:
+	var url := "https://godot-play-api-831129541610.us-east1.run.app/log/alphabet-detailed"
+	var headers = ["Content-Type: application/json", "Content-Length: 2"]
+	http_request.request_completed.connect(_on_request_completed)
+	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, "{}")
+	if error != OK:
+		print("HTTP Request failed: ", error)
+func _on_request_completed(result, response_code, headers, body) -> void:
+	print("Response code: ", response_code)
+	print("Body: ", body.get_string_from_utf8())
 
 func _ready() -> void:
 	visited_letters.resize(TOTAL_LETTERS)
 	for i in TOTAL_LETTERS:
 		visited_letters[i] = false 	#initializes all 26 slots to false at the start, immediately visits A 
-
+	_log_play()
 	_visit_current_letter()
 	_refresh_ui()
 
