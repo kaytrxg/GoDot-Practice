@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="twinkle_twinkle"
+run/main_scene="uid://bugbinws6h5x6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
