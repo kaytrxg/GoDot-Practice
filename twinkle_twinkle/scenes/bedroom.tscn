@@ -6,8 +6,9 @@
 script = ExtResource("1")
 
 [node name="Ceiling" type="Polygon2D" parent="."]
+position = Vector2(-3, -3)
 color = Color(0.0254467, 0.0254297, 0.0839645, 1)
-polygon = PackedVector2Array(0, 0, 300, 80, 852, 80, 1152, 0)
+polygon = PackedVector2Array(78, 12, 309, 85, 557, 83, 855, 85, 1037, 5)
 
 [node name="BackWall" type="Polygon2D" parent="."]
 color = Color(0.0784314, 0.0784314, 0.180392, 1)
@@ -15,37 +16,32 @@ polygon = PackedVector2Array(300, 80, 852, 80, 852, 454, 300, 454)
 
 [node name="LeftWall" type="Polygon2D" parent="."]
 color = Color(0.0862745, 0.129412, 0.243137, 1)
-polygon = PackedVector2Array(0, 0, 300, 80, 300, 454, 0, 648)
+polygon = PackedVector2Array(77, 9, 300, 80, 300, 454, 79, 647)
 
 [node name="RightWall" type="Polygon2D" parent="."]
 color = Color(0.0862745, 0.129412, 0.243137, 1)
-polygon = PackedVector2Array(852, 80, 1152, 0, 1152, 648, 852, 454)
+polygon = PackedVector2Array(852, 80, 1032, 3, 1030, 648, 852, 454)
 
 [node name="Floor" type="Polygon2D" parent="."]
 color = Color(0.239216, 0.168627, 0.121569, 1)
-polygon = PackedVector2Array(0, 648, 300, 454, 852, 454, 1152, 648)
+polygon = PackedVector2Array(73, 647, 300, 454, 852, 454, 1031, 647)
 
-[node name="Window" type="ColorRect" parent="."]
-offset_left = 920.0
-offset_top = 90.0
-offset_right = 1020.0
-offset_bottom = 250.0
+[node name="Window" type="Polygon2D" parent="."]
+position = Vector2(-83, -24)
 color = Color(0.909804, 0.909804, 0.815686, 1)
+polygon = PackedVector2Array(960, 160, 1090, 125, 1090, 360, 960, 310)
 
-[node name="WindowPane" type="ColorRect" parent="Window"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 92.0
-offset_bottom = 152.0
+[node name="WindowPane" type="Polygon2D" parent="Window"]
+position = Vector2(-18.6364, 13.1401)
+scale = Vector2(1.01818, 0.961353)
 color = Color(0.0509804, 0.105882, 0.294118, 1)
+polygon = PackedVector2Array(970.982, 163.166, 1079.02, 134.04, 1079.02, 340, 970, 302)
 
 [node name="Star" type="Label" parent="Window/WindowPane"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 36.0
-offset_right = 50.0
-offset_bottom = 56.0
+offset_left = 992.589
+offset_top = 189.171
+offset_right = 1008.59
+offset_bottom = 213.171
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "✦"
 
@@ -62,73 +58,68 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 150.0
 offset_bottom = 190.0
-color = Color(0.290196, 0.564706, 0.85098, 1)
+color = Color(0.806354, 0.442541, 0.11725, 1)
 
 [node name="Bed" type="ColorRect" parent="."]
-offset_left = 170.0
-offset_top = 430.0
-offset_right = 390.0
-offset_bottom = 530.0
+offset_left = 313.0
+offset_top = 409.0
+offset_right = 525.0
+offset_bottom = 483.0
 color = Color(0.360784, 0.239216, 0.180392, 1)
 
 [node name="BedCovers" type="ColorRect" parent="Bed"]
 layout_mode = 0
-offset_right = 220.0
-offset_bottom = 60.0
+offset_left = 10.0
+offset_top = -27.0
+offset_right = 197.0
+offset_bottom = 62.0
 color = Color(0.356863, 0.498039, 0.65098, 1)
 
-[node name="BedCovers#Pillow" type="ColorRect" parent="."]
-offset_left = 12.0
-offset_top = 10.0
-offset_right = 92.0
-offset_bottom = 40.0
-color = Color(0.878431, 0.866667, 0.815686, 1)
-
 [node name="Nightstand" type="ColorRect" parent="."]
-offset_left = 405.0
-offset_top = 460.0
-offset_right = 465.0
-offset_bottom = 530.0
+offset_left = 536.0
+offset_top = 418.0
+offset_right = 617.0
+offset_bottom = 477.0
 color = Color(0.360784, 0.239216, 0.180392, 1)
 
 [node name="DeskSurface" type="ColorRect" parent="."]
-offset_left = 660.0
-offset_top = 420.0
-offset_right = 860.0
-offset_bottom = 440.0
+offset_left = 651.0
+offset_top = 373.0
+offset_right = 851.0
+offset_bottom = 393.0
 color = Color(0.478431, 0.360784, 0.243137, 1)
 
 [node name="DeskLegLeft" type="ColorRect" parent="."]
-offset_left = 678.0
-offset_top = 440.0
-offset_right = 690.0
-offset_bottom = 540.0
+offset_left = 660.0
+offset_top = 392.0
+offset_right = 672.0
+offset_bottom = 492.0
 color = Color(0.360784, 0.239216, 0.180392, 1)
 
 [node name="DeskLegRight" type="ColorRect" parent="."]
-offset_left = 830.0
-offset_top = 440.0
-offset_right = 842.0
-offset_bottom = 540.0
+offset_left = 832.0
+offset_top = 391.0
+offset_right = 844.0
+offset_bottom = 491.0
 color = Color(0.360784, 0.239216, 0.180392, 1)
 
 [node name="Chair" type="ColorRect" parent="."]
-offset_left = 720.0
-offset_top = 500.0
-offset_right = 800.0
-offset_bottom = 560.0
+offset_left = 717.0
+offset_top = 434.0
+offset_right = 797.0
+offset_bottom = 494.0
 color = Color(0.227451, 0.227451, 0.227451, 1)
 
-[node name="ClosetDoor" type="ColorRect" parent="."]
-offset_left = 15.0
-offset_top = 180.0
-offset_right = 105.0
-offset_bottom = 380.0
+[node name="ClosetDoor" type="Polygon2D" parent="."]
+position = Vector2(34, 3)
+scale = Vector2(1.02581, 0.974533)
 color = Color(0.117647, 0.176471, 0.270588, 1)
+polygon = PackedVector2Array(63.3648, 27.7056, 222.264, 76.9599, 217.39, 483.308, 70.1887, 611.575)
 
-[node name="ClosetDoorLine" type="ColorRect" parent="ClosetDoor"]
-layout_mode = 0
-offset_left = 44.0
-offset_right = 46.0
-offset_bottom = 200.0
+[node name="ClosetDoorLine" type="Polygon2D" parent="ClosetDoor"]
+position = Vector2(-95.723, 27.3173)
+scale = Vector2(1.78852, 0.901332)
 color = Color(0.0862745, 0.129412, 0.243137, 1)
+polygon = PackedVector2Array(138.004, 36.8615, 144, 38, 144, 556, 139.64, 561.692)
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
