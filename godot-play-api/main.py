@@ -1,6 +1,6 @@
 import os
 import pymysql
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -39,6 +39,34 @@ def get_stats():
             )
             results = cursor.fetchall()
     return jsonify(results)
+
+@app.route("/leaderboard/<game_name>", methods=["GET"])
+#/leaderboard --> currently has test data for testing reasons
+def get_leaderboard(game_name):
+    conn = get_db_connection()
+    with conn: 
+        with conn.cursor() as cursor: 
+            cursor.execute(
+                "SELECT player_name, score, played_at FROM scores WHERE game_name = %s ORDER BY score DESC LIMIT 10",
+                (game_name,)
+            )
+            results = cursor.fetchall()
+    return jsonify(results)
+
+@app.route("/leaderboard/<game_name>", methods=["POST"])
+def post_score(game_name):
+    data = request.get_json()
+    player_name = data.get("player_name")
+    score = data.get("score")
+    conn = get_db_connection()
+    with conn: 
+        with conn.cursor() as cursor: 
+            cursor.execute(
+                "INSERT INTO scores (game_name, player_name, score) VALUES (%s, %s, %s)",
+                (game_name, player_name, score)
+            )
+        conn.commit()
+    return jsonify({"status": "ok", "game": game_name, "player": player_name, "score": score})
 
 
 if __name__ == "__main__": 
