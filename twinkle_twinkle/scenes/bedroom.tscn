@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bugbinws6h5x6"]
+[gd_scene load_steps=3 format=3 uid="uid://bugbinws6h5x6"]
 
 [ext_resource type="Script" uid="uid://cxachq5q6hwh6" path="res://scripts/bedroom.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://biyfvn52l8vn1" path="res://scenes/character.tscn" id="2_0grwd"]
 
 [node name="Bedroom" type="Node2D"]
 script = ExtResource("1")
@@ -44,13 +45,6 @@ offset_right = 1008.59
 offset_bottom = 213.171
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "✦"
-
-[node name="ButtonGlow" type="Polygon2D" parent="."]
-position = Vector2(926, 355)
-scale = Vector2(0.7360875, 0.7346215)
-color = Color(0.54509807, 0, 0, 1)
-offset = Vector2(-877, -354)
-polygon = PackedVector2Array(893, 355, 967, 390, 967, 450, 893, 410)
 
 [node name="Poster" type="ColorRect" parent="."]
 offset_left = 496.0
@@ -130,3 +124,19 @@ color = Color(0.0862745, 0.129412, 0.243137, 1)
 polygon = PackedVector2Array(138.004, 36.8615, 144, 38, 144, 556, 139.64, 561.692)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ButtonPanel" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(893, 308, 965, 338, 965, 396, 893, 366)
+
+[node name="ButtonGlow" type="Polygon2D" parent="."]
+color = Color(0.0745098, 1, 1, 1)
+polygon = PackedVector2Array(900, 317, 958, 342, 958, 389, 900, 361)
+
+[node name="ButtonRed" type="Polygon2D" parent="."]
+position = Vector2(1, 0)
+color = Color(1, 0.0470588, 1, 1)
+polygon = PackedVector2Array(910, 329, 943, 345, 942, 372, 910, 357)
+
+[node name="Dev_Character" parent="." instance=ExtResource("2_0grwd")]
+position = Vector2(448, 350)
+scale = Vector2(0.339317, 0.513854)
