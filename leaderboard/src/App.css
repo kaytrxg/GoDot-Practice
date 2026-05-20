@@ -1,38 +1,96 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+
+body {
+  background: #0f0f1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.app {
+  max-width: 700px; 
+  margin: 60px auto; 
+  padding: 0 20px; 
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 2.2rem; 
+  color: #ffffff; 
+  letter-spacing: 2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subtitle {
+  color: #888;
+  margin-top: 4px; 
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+  text-transform: uppercase; 
+  letter-spacing: 1px;  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.tabs {
+  display: flex; 
+  justify-content: center; 
+  gap: 12px; 
+  margin-bottom: 28px;
 }
 
-.App-link {
-  color: #61dafb;
+.tab { 
+  background: #1e1e2e; 
+  border: 1px solid #333; 
+  color: #aaa; 
+  padding: 8px 20px; 
+  border-radius: 20px; 
+  cursor: pointer; 
+  font-size: 0.9rem; 
+  transition: all 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tab:hover {
+  border-color: #7c6af7; 
+  color: #fff;
 }
+
+.tab.active {
+  background: #7c6af7;
+  border-color: #7c6af7;
+  color: #fff;
+}
+
+.loading {
+  color: #555; 
+  margin-top: 40px; 
+}
+
+.leaderboard {
+  width: 100%; 
+  border-collapse: collapse;
+}
+
+.leaderboard th{
+  text-align: left;
+  padding: 10px 14px; 
+  font-size: 0.75rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  color: #668;
+  border-bottom: 1px solid #222;
+}
+
+.leaderboard td{
+  padding: 12px 14px; 
+  border-bottom: 1px solid #1a1a2e; 
+  font-size: 0.95rem; 
+}
+
+.leaderboard tr:hover td{ 
+  background: #1a1a2e;
+}
+
+.rank-1 td { color: #ffd700; }
+.rank-2 td { color: #c0c0c0; }
+.rank-3 td { color: #cd7f32; }
