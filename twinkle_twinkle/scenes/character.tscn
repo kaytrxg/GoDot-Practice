@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://biyfvn52l8vn1"]
+[gd_scene load_steps=6 format=3 uid="uid://biyfvn52l8vn1"]
 
 [ext_resource type="Script" uid="uid://bs8mqgubmfwwh" path="res://scripts/character.gd" id="1_agfs1"]
 [ext_resource type="AudioStream" uid="uid://cfogm5gkemvel" path="res://audio/Twinkle Star.ogg" id="2_rkhd4"]
+[ext_resource type="Script" uid="uid://c7t2y4jjseimo" path="res://scenes/necklace.gd" id="3_lrhn5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkhd4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my7n2"]
+size = Vector2(45, 78)
 
 [node name="Dev_Character" type="CharacterBody2D"]
 script = ExtResource("1_agfs1")
@@ -25,3 +29,24 @@ color = Color(0.113725, 1, 1, 1)
 
 [node name="LullabyVocals" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_rkhd4")
+
+[node name="Necklace" type="Area2D" parent="."]
+script = ExtResource("3_lrhn5")
+
+[node name="Chain" type="Polygon2D" parent="Necklace"]
+position = Vector2(1, 2)
+color = Color(0.8, 0.65, 0.1, 1)
+polygon = PackedVector2Array(60, 118, 65, 120, 65, 142, 60, 142)
+
+[node name="KeyBow" type="Polygon2D" parent="Necklace"]
+position = Vector2(0, 1)
+color = Color(0.8, 0.6509804, 0.101960786, 1)
+polygon = PackedVector2Array(63, 142, 69, 144, 71, 150, 69, 156, 63, 158, 57, 156, 55, 150, 57, 144)
+
+[node name="KeyBlade" type="Polygon2D" parent="Necklace"]
+color = Color(0.8, 0.6509804, 0.101960786, 1)
+polygon = PackedVector2Array(60, 158, 65, 158, 65, 165, 70, 165, 70, 170, 65, 170, 65, 182, 60, 182)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Necklace"]
+position = Vector2(64, 152)
+shape = SubResource("RectangleShape2D_my7n2")
