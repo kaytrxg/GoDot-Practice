@@ -40,11 +40,11 @@ polygon = PackedVector2Array(60, 118, 65, 120, 65, 142, 60, 142)
 
 [node name="KeyBow" type="Polygon2D" parent="Necklace"]
 position = Vector2(0, 1)
-color = Color(0.8, 0.6509804, 0.101960786, 1)
+color = Color(0.8, 0.65098, 0.101961, 1)
 polygon = PackedVector2Array(63, 142, 69, 144, 71, 150, 69, 156, 63, 158, 57, 156, 55, 150, 57, 144)
 
 [node name="KeyBlade" type="Polygon2D" parent="Necklace"]
-color = Color(0.8, 0.6509804, 0.101960786, 1)
+color = Color(0.8, 0.65098, 0.101961, 1)
 polygon = PackedVector2Array(60, 158, 65, 158, 65, 165, 70, 165, 70, 170, 65, 170, 65, 182, 60, 182)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Necklace"]
