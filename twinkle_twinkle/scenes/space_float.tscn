@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/space_float.gd" id="1"]
+
+[node name="SpaceFloat" type="Node2D"]
+script = ExtResource("1")
+
+[node name="SpaceBackground" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.00784314, 0.00784314, 0.0235294, 1)
+
+[node name="SmallStar1" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 60.0
+offset_right = 110.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 5
+text = "✦"
+
+[node name="SmallStar2" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 230.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "●"
+
+[node name="SmallStar3" type="Label" parent="."]
+offset_left = 950.0
+offset_top = 80.0
+offset_right = 980.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 6
+text = "✦"
+
+[node name="SmallStar4" type="Label" parent="."]
+offset_left = 1050.0
+offset_top = 300.0
+offset_right = 1080.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "●"
+
+[node name="SmallStar5" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 130.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 5
+text = "✦"
+
+[node name="SmallStar6" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 500.0
+offset_right = 330.0
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "●"
+
+[node name="SmallStar7" type="Label" parent="."]
+offset_left = 1000.0
+offset_top = 500.0
+offset_right = 1030.0
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 5
+text = "✦"
+
+[node name="SmallStar8" type="Label" parent="."]
+offset_left = 700.0
+offset_top = 80.0
+offset_right = 730.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "●"
+
+[node name="StarGlow" type="Polygon2D" parent="."]
+color = Color(1, 0.984314, 0.901961, 1)
+polygon = PackedVector2Array(576, 80, 660, 200, 576, 320, 492, 200)
+
+[node name="StarCore" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 1)
+polygon = PackedVector2Array(576, 130, 620, 200, 576, 270, 532, 200)
+
+[node name="StarInnerGlow" type="ColorRect" parent="."]
+offset_left = 556.0
+offset_top = 180.0
+offset_right = 596.0
+offset_bottom = 220.0
+color = Color(1, 1, 1, 1)
