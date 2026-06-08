@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cnb7o8k2odk28"]
 
-[ext_resource type="Script" path="res://scripts/space_float.gd" id="1"]
+[ext_resource type="Script" uid="uid://cvjy57nfp5q0p" path="res://scripts/space_float.gd" id="1"]
 
 [node name="SpaceFloat" type="Node2D"]
 script = ExtResource("1")
@@ -87,7 +87,6 @@ color = Color(1, 0.984314, 0.901961, 1)
 polygon = PackedVector2Array(576, 80, 660, 200, 576, 320, 492, 200)
 
 [node name="StarCore" type="Polygon2D" parent="."]
-color = Color(1, 1, 1, 1)
 polygon = PackedVector2Array(576, 130, 620, 200, 576, 270, 532, 200)
 
 [node name="StarInnerGlow" type="ColorRect" parent="."]
@@ -95,4 +94,3 @@ offset_left = 556.0
 offset_top = 180.0
 offset_right = 596.0
 offset_bottom = 220.0
-color = Color(1, 1, 1, 1)

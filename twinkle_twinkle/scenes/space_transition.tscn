@@ -1,6 +1,68 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://dj3w35o6tmvpg"]
 
-[ext_resource type="Script" path="res://scripts/space_transition.gd" id="1"]
+[ext_resource type="Script" uid="uid://byvfwmoebm58r" path="res://scripts/space_transition.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://biyfvn52l8vn1" path="res://scenes/character.tscn" id="2_t2lwo"]
+
+[sub_resource type="Animation" id="Animation_53l5c"]
+resource_name = "rise"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dev_Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 1.04, 1.56, 2.02, 2.57, 3.03, 3.57, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(642, 561), Vector2(672, 547), Vector2(694, 547), Vector2(723, 545), Vector2(756, 543), Vector2(783, 522), Vector2(794, 509), Vector2(791, 474), Vector2(789, 438)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dev_Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55, 1.04, 2.57, 3.03),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.08007, 1.56716, 0.861626, -0.0296949]
+}
+
+[sub_resource type="Animation" id="Animation_mtbwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dev_Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(642, 561)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dev_Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78crl"]
+_data = {
+&"RESET": SubResource("Animation_mtbwn"),
+&"rise": SubResource("Animation_53l5c")
+}
 
 [node name="SpaceTransition" type="Node2D"]
 script = ExtResource("1")
@@ -20,6 +82,7 @@ color = Color(0.0313726, 0.0509804, 0.121569, 1)
 offset_top = 448.0
 offset_right = 1152.0
 offset_bottom = 648.0
+rotation = -0.000714578
 color = Color(0.0509804, 0.105882, 0.294118, 1)
 
 [node name="HouseBase" type="ColorRect" parent="."]
@@ -136,3 +199,35 @@ offset_bottom = 150.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 5
 text = "●"
+
+[node name="TubeGlow" type="Polygon2D" parent="."]
+position = Vector2(210, 120)
+color = Color(0.713726, 0.894118, 0.54902, 0.439216)
+polygon = PackedVector2Array(520, 406, 633, 407, 608, -48, 541, -48)
+
+[node name="TubeMid" type="Polygon2D" parent="."]
+position = Vector2(269.189, 124.903)
+scale = Vector2(0.882883, 1.01964)
+color = Color(0.713726, 0.894118, 0.988235, 0.188235)
+polygon = PackedVector2Array(525.337, 402.198, 463.041, 405.14, 465.306, 451.235, 642, 430.14, 613, -46, 555.918, -46)
+
+[node name="TubeCore" type="Polygon2D" parent="."]
+position = Vector2(-365, 132.167)
+scale = Vector2(2, 0.962465)
+color = Color(0.389099, 0.930648, 0.854311, 0.439216)
+polygon = PackedVector2Array(525.001, 428.933, 525.501, 464.259, 597.001, 442.44, 586, -50, 576.047, -50, 566, -50, 551.501, 424.777)
+
+[node name="TubeBase" type="Polygon2D" parent="."]
+position = Vector2(197, -142.885)
+scale = Vector2(1, 1.26923)
+color = Color(0.713726, 0.894118, 0.54902, 0.439216)
+polygon = PackedVector2Array(476, 530, 533, 527, 617.22, 527.745, 646, 528, 645, 558, 477, 579)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_78crl")
+}
+
+[node name="Dev_Character" parent="." instance=ExtResource("2_t2lwo")]
+position = Vector2(642, 561)
+scale = Vector2(0.1, 0.1)

@@ -5,6 +5,8 @@ var reached_button := false
 var is_moving := false
 
 @onready var lullaby_vocals: AudioStreamPlayer2D = $LullabyVocals
+const AUDIO_START := 6.0 #starting of Audio
+const AUDIO_END := 17.5 #ending of Audio time stamp
 
 func _physics_process(_delta: float) -> void: 
 	if reached_button:
@@ -15,18 +17,24 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = SPEED
 		if not is_moving: 
 			is_moving = true
-			lullaby_vocals.play()
+			lullaby_vocals.play(AUDIO_START)
 	else: 
 		velocity.x = 0.0
 	
 	velocity.y = 0.0
 	move_and_slide()
 	
+	if lullaby_vocals.playing and lullaby_vocals.get_playback_position() >= AUDIO_END:
+		lullaby_vocals.stop()
+		is_moving = false
 	#Triggers: when character reaches button area
 	if global_position.x >= 880: 
 		reached_button = true
 		velocity = Vector2.ZERO
 
+func _input(event: InputEvent) -> void: 
+	if reached_button and event.is_action_pressed("ui_accept"):
+		get_tree().change_scene_to_file("res://scenes/space_transition.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
