@@ -31,10 +31,12 @@ func _physics_process(_delta: float) -> void:
 	if global_position.x >= 880: 
 		reached_button = true
 		velocity = Vector2.ZERO
+		lullaby_vocals.stop()
 
 func _input(event: InputEvent) -> void: 
 	if reached_button and event.is_action_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://scenes/space_transition.tscn")
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

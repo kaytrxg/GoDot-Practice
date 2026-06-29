@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj3w35o6tmvpg"]
+[gd_scene load_steps=8 format=3 uid="uid://dj3w35o6tmvpg"]
 
 [ext_resource type="Script" uid="uid://byvfwmoebm58r" path="res://scripts/space_transition.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cfogm5gkemvel" path="res://audio/Twinkle Star.ogg" id="2_53l5c"]
 [ext_resource type="PackedScene" uid="uid://biyfvn52l8vn1" path="res://scenes/character.tscn" id="2_t2lwo"]
 
 [sub_resource type="Animation" id="Animation_53l5c"]
@@ -9,29 +10,57 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dev_Character:position")
+tracks/0/path = NodePath("Dev_Character:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.55, 1.04, 1.56, 2.02, 2.57, 3.03, 3.57, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(642, 561), Vector2(672, 547), Vector2(694, 547), Vector2(723, 545), Vector2(756, 543), Vector2(783, 522), Vector2(794, 509), Vector2(791, 474), Vector2(789, 438)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Dev_Character:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.55, 1.04, 2.57, 3.03),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.08007, 1.56716, 0.861626, -0.0296949]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dev_Character:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55, 1.04, 1.56, 2.02, 2.57, 3.03, 3.57, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(642, 561), Vector2(672, 547), Vector2(694, 547), Vector2(723, 545), Vector2(756, 543), Vector2(783, 522), Vector2(794, 509), Vector2(791, 474), Vector2(789, 438)]
+}
 
 [sub_resource type="Animation" id="Animation_mtbwn"]
+resource_name = "rise_2"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dev_Character:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.51, 2.03, 2.52),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.07066, 1.52997, 1.4162, 0.576376, 0.00165647]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dev_Character:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.51, 2.03, 2.52, 3.01, 3.53333, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(640, 560), Vector2(652, 562), Vector2(689, 552), Vector2(748, 548), Vector2(789, 520), Vector2(781, 437), Vector2(779, 369), Vector2(782, 302), Vector2(783, 238), Vector2(781, 137)]
+}
+
+[sub_resource type="Animation" id="Animation_78crl"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -43,25 +72,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(642, 561)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Dev_Character:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Vector2(783, 209)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_78crl"]
 _data = {
-&"RESET": SubResource("Animation_mtbwn"),
-&"rise": SubResource("Animation_53l5c")
+&"RESET": SubResource("Animation_78crl"),
+&"rise": SubResource("Animation_53l5c"),
+&"rise_2": SubResource("Animation_mtbwn")
 }
 
 [node name="SpaceTransition" type="Node2D"]
@@ -201,21 +219,22 @@ theme_override_font_sizes/font_size = 5
 text = "●"
 
 [node name="TubeGlow" type="Polygon2D" parent="."]
-position = Vector2(210, 120)
+position = Vector2(210, 29.7444)
+scale = Vector2(1, 1.22176)
 color = Color(0.713726, 0.894118, 0.54902, 0.439216)
-polygon = PackedVector2Array(520, 406, 633, 407, 608, -48, 541, -48)
+polygon = PackedVector2Array(520, 406, 633, 407, 618.667, 28.3337, 670.667, -70.9997, 606.667, -68.333, 537.334, -66.9997, 470, -68.333, 520.667, 28.3337)
 
 [node name="TubeMid" type="Polygon2D" parent="."]
-position = Vector2(269.189, 124.903)
-scale = Vector2(0.882883, 1.01964)
+position = Vector2(269.229, 35.4153)
+scale = Vector2(0.882797, 1.21796)
 color = Color(0.713726, 0.894118, 0.988235, 0.188235)
-polygon = PackedVector2Array(525.337, 402.198, 463.041, 405.14, 465.306, 451.235, 642, 430.14, 613, -46, 555.918, -46)
+polygon = PackedVector2Array(525.337, 402.198, 463.041, 405.14, 465.306, 451.235, 642, 430.14, 626.667, 17.6664, 676, -67.6669, 609.334, -65.0002, 558, -67.6669, 482, -65.6669, 529.867, 18.7292)
 
 [node name="TubeCore" type="Polygon2D" parent="."]
-position = Vector2(-365, 132.167)
-scale = Vector2(2, 0.962465)
+position = Vector2(-365, 41.0434)
+scale = Vector2(2, 1.15874)
 color = Color(0.389099, 0.930648, 0.854311, 0.439216)
-polygon = PackedVector2Array(525.001, 428.933, 525.501, 464.259, 597.001, 442.44, 586, -50, 576.047, -50, 566, -50, 551.501, 424.777)
+polygon = PackedVector2Array(525.001, 428.933, 525.501, 464.259, 597.001, 442.44, 590, 14.3725, 608, -71.6668, 583, -69.7864, 565.334, -69.6668, 533.334, -70.3334, 555.5, 11.2555, 551.501, 424.777)
 
 [node name="TubeBase" type="Polygon2D" parent="."]
 position = Vector2(197, -142.885)
@@ -228,6 +247,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_78crl")
 }
 
+[node name="LullabyVocals" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_53l5c")
+
 [node name="Dev_Character" parent="." instance=ExtResource("2_t2lwo")]
-position = Vector2(642, 561)
+position = Vector2(783, 209)
+rotation = 0.00165647
 scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D2" type="Camera2D" parent="Dev_Character"]
+position = Vector2(-30, -30)
+rotation = -0.0400802
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
