@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://jwn81hed5w8l"]
+
+[node name="FPS GoTime" type="Node2D"]
