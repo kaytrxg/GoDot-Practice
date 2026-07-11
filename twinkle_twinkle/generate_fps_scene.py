@@ -1,4 +1,6 @@
-[gd_scene format=3]
+from pathlib import Path
+
+scene = """[gd_scene format=3]
 
 [node name="FpsScene" type="Node3D"]
 
@@ -18,3 +20,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
+"""
+
+output_path = Path(__file__).resolve().parent / "scenes" / "fps_scene.tscn"
+output_path.parent.mkdir(parents=True, exist_ok=True)
+
+with open(output_path, "w") as f:
+    f.write(scene)
+
+print("fps_scene.tscn generated successfully")
